@@ -1,4 +1,4 @@
-defmodule ProcessInElixirTest.Stack do
+defmodule ProcessInElixirTest.StackNormal do
   use ExUnit.Case, async: true
   doctest ProcessInElixir
   alias ProcessInElixir.StackNormal
