@@ -9,7 +9,7 @@ defmodule ProcessInElixirTest.StackNormal do
   end
 
   describe "StackNormal" do
-    test "StackNormal.start_link: should be :ok and pid", %{pid: pid} do
+    test "StackNormal.start_link: should return a pid", %{pid: pid} do
       assert is_pid(pid)
     end
 

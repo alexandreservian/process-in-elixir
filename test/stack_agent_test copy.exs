@@ -9,7 +9,7 @@ defmodule ProcessInElixirTest.StackAgent do
   end
 
   describe "StackAgent" do
-    test "StackAgent.start_link: should be :ok and pid", %{pid: pid} do
+    test "StackAgent.start_link: should return a pid", %{pid: pid} do
       assert is_pid(pid)
     end
 
