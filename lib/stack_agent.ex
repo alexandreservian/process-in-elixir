@@ -8,7 +8,7 @@ defmodule ProcessInElixir.StackAgent do
   end
   def pop(pid) do
     currentStack = show pid
-    [head | _tail] = currentStack
+    [head | _tail] = Enum.reverse currentStack
     Agent.update pid, fn state ->
       [_head | tail] = state
       tail
@@ -30,6 +30,7 @@ defmodule ProcessInElixir.StackAgent do
   end
   def clear(pid)do
     Agent.update pid, fn _state -> [] end
+    []
   end
   def show(pid) do
     Agent.get pid, &(Enum.reverse &1)
