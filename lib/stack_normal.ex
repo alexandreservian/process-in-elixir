@@ -1,7 +1,17 @@
 defmodule ProcessInElixir.StackNormal do
-  def start_link do
-    pid = spawn_link __MODULE__, :loop, []
+  def start_link(initialStack \\ []) do
+    pid = spawn_link __MODULE__, :loop, [initialStack]
     {:ok, pid}
+  end
+
+  def child_spec(opts) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, [opts]},
+      type: :worker,
+      restart: :permanent,
+      shutdown: 500
+    }
   end
 
   def loop(stack \\ []) do

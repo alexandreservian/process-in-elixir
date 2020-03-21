@@ -1,6 +1,7 @@
 defmodule ProcessInElixir.StackAgent do
-  def start_link do
-    Agent.start_link fn -> [] end
+  use Agent
+  def start_link(initialStack \\ []) do
+    Agent.start_link fn -> initialStack end
   end
 
   def push(pid, value) do
