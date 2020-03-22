@@ -1,7 +1,7 @@
-defmodule DynamicSupervisorStack do
+defmodule StackDynamicSupervisor do
   use DynamicSupervisor
 
-  def start_link() do
+  def start_link(_arg \\ []) do
     DynamicSupervisor.start_link __MODULE__, :ok, name: __MODULE__
   end
 

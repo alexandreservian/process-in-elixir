@@ -1,5 +1,6 @@
 defmodule ProcessInElixir.BookAgent do
-  def start_link(initialValue \\ %{}) when is_map(initialValue) do
+  use Agent
+  def start_link(initialValue \\ %{}) do
     Agent.start_link fn -> initialValue end, name: __MODULE__
   end
 
